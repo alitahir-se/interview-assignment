@@ -11,10 +11,14 @@ import com.alfransi.assignment.services.impl.AccountOperationServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import java.math.BigDecimal;
 import static org.junit.Assert.assertThrows;
@@ -24,13 +28,12 @@ import static org.junit.Assert.assertEquals;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @ActiveProfiles("test")
-@ComponentScan("com.alfransi.assignment.converter")
-public class AccountOperationsServiceTests {
+public class AccountOperationsServiceTest {
 
 	@Autowired
 	private AccountsRepository accountsRepository;
 
-	@Autowired
+	@InjectMocks
 	private Converter converter;
 
 	AccountOperationServiceImpl accountOperationService;
