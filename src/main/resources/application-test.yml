@@ -1,0 +1,8 @@
+spring:
+  sql:
+    init:
+      platform: h2
+  jpa:
+    hibernate:
+      ddl-auto: none
+
