@@ -1,6 +1,6 @@
 # assignment
 
-The assignment contains two REST APIs
+The assignment provides two REST APIs
   1) To accept money transfer
   2) To get account details
 
