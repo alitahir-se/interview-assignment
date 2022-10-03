@@ -4,7 +4,9 @@ The assignment contains two REST APIs
   1) To accept money transfer
   2) To get account details
 
-Swagger documentation is available at the link : http://localhost:8080/swagger-ui/index.html
+<h2>Documentation</h2>
+
+Swagger documentation for the APIs is available at the link : http://localhost:8080/swagger-ui/index.html
 
 <h1>How to Run</h1>
 
