@@ -22,7 +22,7 @@ public class ExceptionHandlerControllerAdvice {
 
     @ExceptionHandler(BusinessException.class)
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
-    public @ResponseBody ExceptionResponse handleResourceNotFound(final BusinessException exception) {
+    public @ResponseBody ExceptionResponse handleBusinessException(final BusinessException exception) {
 
         ExceptionResponse exceptionResponse = new ExceptionResponse();
         exceptionResponse.setMessage(exception.getMessage());

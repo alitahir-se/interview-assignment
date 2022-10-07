@@ -6,5 +6,5 @@ import com.alfransi.assignment.exception.ResourceNotFoundException;
 
 public interface AccountOperationService {
     String createTransfer(TransferRequestDto transferDto);
-    AccountInfoDto getAccountInfo(final String accountNumber) throws ResourceNotFoundException;
+    AccountInfoDto getAccountInfo(final String accountNumber);
 }

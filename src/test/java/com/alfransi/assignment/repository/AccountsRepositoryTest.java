@@ -16,7 +16,7 @@ import java.util.Optional;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @ActiveProfiles("test")
-public class AccountsRepositoryTest {
+public class AccountsRepositoryTest{
 
     @Autowired
     AccountsRepository accountsRepository;
@@ -46,7 +46,6 @@ public class AccountsRepositoryTest {
     public void findByAccountNumber_DataNotFound(){
         Optional<Account> account = accountsRepository.findByAccountNumber("123456789323456");
         Assert.assertTrue(account.isEmpty());
-
     }
 
 }

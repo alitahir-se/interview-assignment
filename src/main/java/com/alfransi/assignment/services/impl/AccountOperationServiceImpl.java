@@ -6,14 +6,15 @@ import com.alfransi.assignment.dto.TransferRequestDto;
 import com.alfransi.assignment.exception.BusinessException;
 import com.alfransi.assignment.exception.ResourceNotFoundException;
 import com.alfransi.assignment.models.Account;
+import com.alfransi.assignment.models.TransactionHistory;
 import com.alfransi.assignment.repositories.AccountsRepository;
+import com.alfransi.assignment.repositories.TransactionHistoryRepository;
 import com.alfransi.assignment.services.AccountOperationService;
 import com.alfransi.assignment.converter.Converter;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.math.BigDecimal;
 import java.util.Optional;
 
 @Service
@@ -21,6 +22,7 @@ import java.util.Optional;
 public class AccountOperationServiceImpl implements AccountOperationService {
 
     private final AccountsRepository accountsRepository;
+    private final TransactionHistoryRepository transactionHistoryRepository;
     private final Converter converter;
 
     @Override
@@ -45,6 +47,8 @@ public class AccountOperationServiceImpl implements AccountOperationService {
 
         creditAccount.setAvailableBalance(creditAccount.getAvailableBalance().add(transferDto.getAmount()));
         creditAccount.setCurrentBalance(creditAccount.getCurrentBalance().add(transferDto.getAmount()));
+
+        transactionHistoryRepository.save(converter.transactionHistory(transferDto));
 
         accountsRepository.save(debitAccount);
         accountsRepository.save(creditAccount);
